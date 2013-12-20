@@ -1,0 +1,158 @@
+
+			body {
+				background: #ffffa0;
+				background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255,220,200,1)), color-stop(.25, rgba(255,255,200,1)), color-stop(.5, rgba(255,255,200,1)), color-stop(.5, rgba(255,220,200,1)), color-stop(.75, rgba(255,220,200,1)), color-stop(.75, rgba(255,255,200,1)), to(rgba(255,255,200,1)) );
+				background-image: -moz-linear-gradient( -45deg, rgba(255,220,200,1) 25%, rgba(255,255,200,1) 25%, rgba(255,255,200,1) 50%, rgba(255,220,200,1) 50%, rgba(255,220,200,1) 75%, rgba(255,255,200,1) 75%, rgba(255,255,200,1) );
+				-webkit-background-size: 50px 50px;
+				-moz-background-size: 50px 50px;
+				position: absolute;
+				min-height: 100%;
+				width: 100%;
+				margin: 0;
+				padding-bottom: 30px;
+				box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+			}
+			#mainframe {
+				border: none;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			#spinner {
+				display: none;
+				position: absolute;
+				z-index: 2000;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: rgba(150, 150, 150, 0.5);
+				font-size: 40px;
+				text-align: center;
+				padding: 200px 0;
+				font-weight: bold;
+			}
+			#links {
+				margin-top: 50px;
+				list-style:none; 
+				position:relative;
+				left:50%;
+			}
+			.index #mainframe {
+				display: none;
+			}
+			.content #lucos_navbar, .content #links {
+				display: none;
+			}
+			.loading #spinner {
+				display: block;
+			}
+			.linkcontainer {
+				float:right;
+				position:relative;
+				left:-50%;
+				text-align:left;
+			}
+			#links li {
+				float:left;
+				position:relative;
+				margin: 10px;				
+			}
+			#links img {
+				border: none;
+				width: 100px;
+			}
+			
+			#bookmarks {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				font-weight: bold;
+				background: #204;
+				background:
+					-webkit-gradient(linear, 0 0, 0 100%,
+						color-stop(0, rgba(0,0,0,0)),
+						color-stop(0.25, #204));
+				color: #fff;
+				font-size: 1.5em;
+				font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+				padding: 10px 0 0 0;
+				height: 30px;
+				overflow: hidden;
+			}
+			#bookmarks ul {
+				list-style:none;
+				margin: 0;
+			}
+			#bookmarks li {
+				float: left;
+			}
+			#bookmarks a {
+				border: none;
+				text-decoration: none;
+				color: inherit;
+				padding: 0 0.5em;
+				display: block;
+			}
+			#bookmarks img {
+				height: 1em;
+				display: block;
+			}
+			#music {
+				position:absolute;
+				z-index: 2010;
+				top: 40px;
+				border: ridge thick black;
+				background: rgb(255, 200, 200);
+				right: 80px;
+				max-width: 95%;
+				min-width: 100px;
+				font-size: 18px;
+				line-height: 35px;
+			}
+			#music h3 {
+				text-align: center;
+				background: black;
+				color: white;margin: 0;
+				margin-bottom: 0.3em;
+			}
+			#music > span {
+				display: block;
+				padding: 0 10px;
+				cursor: pointer;
+			}
+			#music .label {
+				font-weight: bold;
+			}
+			#music .play {
+				font-weight: bold;
+			}
+			.lucos_offline .module.networkonly {
+				opacity: 0.4;
+				pointer-events: none;
+				cursor: default;
+			}
+			.module .loadingbar {
+				height: 10px;
+				background: #7af;
+				margin-top: -60px;
+				margin-bottom: 50px;
+			}
+			.module.manifestloaded .loadingbar { 
+				background: #fa7;
+			}
+			.module.resourcesloaded .loadingbar { 
+				background: #7fa;
+			}
+			.module .loading img {
+				opacity: 0.4;
+			}
+
+#pdfs { clear: both; font-weight: bold; }
+#pdfs a { color: inherit; text-decoration: none; }

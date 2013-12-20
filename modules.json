@@ -1,0 +1,11 @@
+[
+	{ "baseurl": "http://ceol.l42.eu/player", "title": "Play Music", "img": "http://ceol.l42.eu/player-icon", "requires": {"net": true, "js": true}},
+	{ "baseurl": "http://notes.l42.eu/todo/", "title": "Todo List", "img": "http://notes.l42.eu/todo-icon", "requires": {"net": false, "js": true}, "preload": {"src": "http://notes.l42.eu/preload"}},
+	{ "baseurl": "http://ceol.l42.eu", "title": "Control Music", "img": "http://ceol.l42.eu/controller-icon", "requires": {"net": true, "js": false}},
+	{ "baseurl": "http://progs.l42.eu/next", "enabled": false, "title": "Programmes", "img": "http://progs.l42.eu/icon", "requires": {"net": true, "js": false}},
+	{ "baseurl": "http://services.l42.eu/", "title": "Services", "requires": {"net": true, "js": false}},
+	{ "baseurl": "http://am.l42.eu/", "title": "Am", "requires": {"net": false, "js": false}, "preload": true},
+	{ "baseurl": "http://travel.l42.eu/tube/", "title": "Travel", "img": "http://travel.l42.eu/img/icon", "requires": {"net": false, "js": false}, "preload": {"src": "http://travel.l42.eu/preload"}},
+	{ "baseurl": "http://contacts.l42.eu/", "title": "Contacts", "requires": {"net": true, "js": false}},
+	{ "baseurl": "http://l42.eu/reading", "img": "http://l42.eu/reading.png", "title": "Reading", "requires": {"net": false, "js": false}}
+]
