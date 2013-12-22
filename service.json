@@ -3,7 +3,7 @@
 	"port": 8003,
 	"commands": {
 		"main": "java -cp .:bin:../lib/java/* Server",
-		"Rebuild": "javac -cp .:../lib/java/* -d bin Server.java -Xlint:unchecked"
+		"Rebuild": "./build.sh"
 	},
 	"subdomain": ""
 }
