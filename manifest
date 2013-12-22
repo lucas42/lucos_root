@@ -13,7 +13,6 @@ CACHE:
 /icon
 /logo.png
 /cog.png
-/music.png
 /gmail.png
 /reading.png
 http://ceol.l42.eu/controller-icon
@@ -25,6 +24,5 @@ http://notes.l42.eu/todo-icon
 http://contacts.l42.eu/icon
 http://travel.l42.eu/img/icon
 /bootloader
-/AnandTech.pdf
 /TLA-1906126.pdf
 FALLBACK:
