@@ -141,10 +141,10 @@ final class Server implements Runnable {
 				if (path.charAt(0) != '/') path = "/" + path;
 				if (path.equals("/script")) fileName = "../core/lucos.js";
 				else if (path.equals("/bootloader")) fileName = "../core/bootloader.js";
-				else if (path.equals("/lucos.manifest")) fileName = "./manifest";
-				else if (path.equals("/icon")) fileName = "./icon.png";
-				else if (path.equals("/favicon.ico")) fileName = "./favicon.png";
-				else fileName = "." + path;
+				else if (path.equals("/lucos.manifest")) fileName = "public/manifest";
+				else if (path.equals("/icon")) fileName = "public/icon.png";
+				else if (path.equals("/favicon.ico")) fileName = "public/favicon.png";
+				else fileName = "public" + path;
 				if (fileName.charAt(fileName.length()-1) == '/') fileName += "index.xhtml";
 			}
 			
@@ -156,12 +156,13 @@ final class Server implements Runnable {
 				fis = new FileInputStream(fileName);
 				 statusLine = "HTTP/1.1 200 OK";
 			} catch (FileNotFoundException e) {
-				System.err.println("File Not found: "+requestLine);
-				fileName = "./404.html";
+				System.err.println("File Not found: "+requestLine+" (looked in "+fileName+")");
+				fileName = "public/404.html";
 				statusLine = "HTTP/1.1 404 File Not Found";
 				try {
 					fis = new FileInputStream(fileName);
 				} catch (FileNotFoundException e2) {
+					System.err.println("Can't find 404.html (looked in "+fileName+")");
 					fileExists = false;
 				}
 			}
