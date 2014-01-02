@@ -138,6 +138,7 @@ final class Server implements Runnable {
 			String fileName = null;
 			if (method.equals("get")) {
 				path = path.replaceAll("/\\.\\./","");
+				if (path.charAt(0) != '/') path = "/" + path;
 				if (path.equals("/script")) fileName = "../core/lucos.js";
 				else if (path.equals("/bootloader")) fileName = "../core/bootloader.js";
 				else if (path.equals("/lucos.manifest")) fileName = "./manifest";
