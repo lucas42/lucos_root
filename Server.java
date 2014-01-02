@@ -129,7 +129,7 @@ final class Server implements Runnable {
 		} else if(path.equals("/reading")) {
 			String content = "";
 			try {
-				content = readFile("reading.xhtml");
+				content = readFile("public/reading.xhtml");
 			} catch (FileNotFoundException e) {
 			}
 			sendHeaders(200, "OK", "application/xhtml+xml");
