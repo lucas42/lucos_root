@@ -156,7 +156,9 @@ final class Server implements Runnable {
 				fis = new FileInputStream(fileName);
 				 statusLine = "HTTP/1.1 200 OK";
 			} catch (FileNotFoundException e) {
-				System.err.println("File Not found: "+requestLine+" (looked in "+fileName+")");
+				String error = "File Not found: "+requestLine+" (looked in "+fileName+")";
+				if (header.get("Referer") != null) error += " Referrer: "+header.get("Referer");
+				System.err.println(error);
 				fileName = "public/404.html";
 				statusLine = "HTTP/1.1 404 File Not Found";
 				try {
