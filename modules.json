@@ -7,5 +7,5 @@
 	{ "baseurl": "https://am.l42.eu/", "title": "Am", "requires": {"net": false, "js": false}, "preload": true},
 	{ "baseurl": "http://travel.l42.eu/tube/", "title": "Travel", "img": "http://travel.l42.eu/img/icon", "requires": {"net": false, "js": false}, "preload": {"src": "http://travel.l42.eu/preload"}},
 	{ "baseurl": "https://contacts.l42.eu/", "title": "Contacts", "requires": {"net": true, "js": false}},
-	{ "baseurl": "http://l42.eu/reading", "img": "http://l42.eu/reading.png", "title": "Reading", "requires": {"net": false, "js": false}}
+	{ "baseurl": "https://l42.eu/reading", "img": "https://l42.eu/reading.png", "title": "Reading", "requires": {"net": false, "js": false}}
 ]
