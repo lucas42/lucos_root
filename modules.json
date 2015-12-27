@@ -5,7 +5,7 @@
 	{ "baseurl": "http://progs.l42.eu/next", "enabled": false, "title": "Programmes", "img": "http://progs.l42.eu/icon", "requires": {"net": true, "js": false}},
 	{ "baseurl": "http://services.l42.eu/", "title": "Services", "requires": {"net": true, "js": false}},
 	{ "baseurl": "https://am.l42.eu/", "title": "Am", "requires": {"net": false, "js": false}, "preload": true},
-	{ "baseurl": "http://travel.l42.eu/tube/", "title": "Travel", "img": "http://travel.l42.eu/img/icon", "requires": {"net": false, "js": false}, "preload": {"src": "http://travel.l42.eu/preload"}},
+	{ "baseurl": "https://app.tfluke.uk/", "title": "Travel", "img": "https://app.tfluke.uk/img/icon.png", "requires": {"net": true, "js": false}},
 	{ "baseurl": "https://contacts.l42.eu/", "title": "Contacts", "requires": {"net": true, "js": false}},
 	{ "baseurl": "https://l42.eu/reading", "img": "https://l42.eu/reading.png", "title": "Reading", "requires": {"net": false, "js": false}}
 ]
