@@ -1,14 +1,19 @@
-#lucos_root
+# lucos_root
 
 A homescreen for lucos modules.
 
-##Dependencies
+## Dependencies
+* docker
+* docker-compose
+
+## Build-time Dependencies
 * Java
 * [Google gson](https://code.google.com/p/google-gson/)
 * [lucos_core](https://github.com/lucas42/lucos_core)
 
-##Installation
-To build the project, run *./build.sh*
+## Running
+`nice -19 docker-compose up -d --no-build`
 
-##Running
-The web server is designed to be run within lucos_services, but can be run standalone by running ```java -cp .:bin:../lib/java/* Server``` from the root of the project. It currently runs on port 8003.
+
+## Building
+The build is configured to run in Dockerhub when a commit is pushed to the master branch in github.
