@@ -83,7 +83,7 @@ final class Server implements Runnable {
 			}
 			path = path.substring(0, ii);
 		}
-		if(path.equals("/.info")) {
+		if(path.equals("/_info")) {
 			Map<String, Object> output = new HashMap<String, Object>();
 			Map<String, Map<String, Object>> checks = new HashMap<String, Map<String, Object>>();
 			Map<String, Map<String, Object>> metrics = new HashMap<String, Map<String, Object>>();
