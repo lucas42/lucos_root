@@ -83,7 +83,26 @@ final class Server implements Runnable {
 			}
 			path = path.substring(0, ii);
 		}
-		if (path.equals("/time") && method.equals("get")) {
+		if(path.equals("/.info")) {
+			Map<String, Object> output = new HashMap<String, Object>();
+			Map<String, Map<String, Object>> checks = new HashMap<String, Map<String, Object>>();
+			Map<String, Map<String, Object>> metrics = new HashMap<String, Map<String, Object>>();
+			Map<String, Object> moduleCheck = new HashMap<String, Object>();
+			moduleCheck.put("techDetail", "Can read modules.json");
+			try {
+				readFile("./modules.json");
+				moduleCheck.put("ok", true);
+			} catch (Exception e) {
+				moduleCheck.put("ok", false);
+				moduleCheck.put("debug", e.getMessage());
+			}
+			checks.put("modules",moduleCheck);
+			output.put("system", "lucos_root");
+			output.put("checks", checks);
+			output.put("metrics", metrics);
+			sendHeaders(200, "OK", "application/json");
+			osw.write(gson.toJson(output));
+		} else if (path.equals("/time") && method.equals("get")) {
 			Date date = new Date();
 			sendHeaders(200, "OK", "application/json");
 			osw.write(Long.toString(date.getTime())); 
