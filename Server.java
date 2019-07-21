@@ -97,9 +97,12 @@ final class Server implements Runnable {
 				moduleCheck.put("debug", e.getMessage());
 			}
 			checks.put("modules",moduleCheck);
+			Map<String, String> ci = new HashMap<String, String>();
+			ci.put("circle", "gh/lucas42/lucos_root");
 			output.put("system", "lucos_root");
 			output.put("checks", checks);
 			output.put("metrics", metrics);
+			output.put("ci", ci);
 			sendHeaders(200, "OK", "application/json");
 			osw.write(gson.toJson(output));
 		} else if (path.equals("/time") && method.equals("get")) {
