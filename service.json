@@ -1,9 +1,0 @@
-{
-	"name": "Root",
-	"port": 8003,
-	"commands": {
-		"main": "java -cp .:bin:../lib/java/* Server",
-		"Rebuild": "./build.sh"
-	},
-	"subdomain": ""
-}
