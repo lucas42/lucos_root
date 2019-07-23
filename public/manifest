@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# V 8
+# V 9
 NETWORK:
 /resources
 /time
@@ -19,7 +19,7 @@ https://ceol.l42.eu/controller-icon
 https://monitoring.l42.eu/icon
 https://am.l42.eu/icon
 https://notes.l42.eu/todo-icon
-https://contacts.l42.eu/resources/logo.png
+https://contacts.l42.eu/resources/logo-highres.png
 https://app.tfluke.uk/img/icon.png
 https://seinn.l42.eu/logo.jpg
 /bootloader
