@@ -1,11 +1,9 @@
 [
-	{ "baseurl": "http://ceol.l42.eu/player", "title": "Play Music", "img": "http://ceol.l42.eu/player-icon", "requires": {"net": true, "js": true}},
+	{ "baseurl": "https://seinn.l42.eu", "title": "Play Music", "img": "https://seinn.l42.eu/logo.jpg", "requires": {"net": false, "js": true}},
 	{ "baseurl": "https://notes.l42.eu/todo/", "title": "Todo List", "img": "https://notes.l42.eu/todo-icon", "requires": {"net": false, "js": true}, "preload": {"src": "https://notes.l42.eu/preload"}},
-	{ "baseurl": "http://ceol.l42.eu", "title": "Control Music", "img": "http://ceol.l42.eu/controller-icon", "requires": {"net": true, "js": false}},
-	{ "baseurl": "http://progs.l42.eu/next", "enabled": false, "title": "Programmes", "img": "http://progs.l42.eu/icon", "requires": {"net": true, "js": false}},
-	{ "baseurl": "http://services.l42.eu/", "title": "Services", "requires": {"net": true, "js": false}},
+	{ "baseurl": "https://monitoring.l42.eu/", "title": "Services", "requires": {"net": true, "js": false}},
 	{ "baseurl": "https://am.l42.eu/", "title": "Am", "requires": {"net": false, "js": false}, "preload": true},
 	{ "baseurl": "https://app.tfluke.uk/", "title": "Travel", "img": "https://app.tfluke.uk/img/icon.png", "requires": {"net": true, "js": false}},
 	{ "baseurl": "https://contacts.l42.eu/", "title": "Contacts", "requires": {"net": true, "js": false}},
-	{ "baseurl": "https://l42.eu/reading", "img": "https://l42.eu/reading.png", "title": "Reading", "requires": {"net": false, "js": false}}
+	{ "baseurl": "https://ceol.l42.eu", "title": "Control Music", "img": "https://ceol.l42.eu/controller-icon", "requires": {"net": true, "js": false}}
 ]
