@@ -1,4 +1,4 @@
-FROM openjdk:15-alpine
+FROM openjdk:16-alpine
 
 WORKDIR /web/lucos/root
 
