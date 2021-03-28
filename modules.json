@@ -1,5 +1,5 @@
 [
-	{ "baseurl": "https://seinn.l42.eu", "title": "Play Music", "img": "https://seinn.l42.eu/logo.jpg", "requires": {"net": false, "js": true}},
+	{ "baseurl": "https://seinn.l42.eu", "title": "Play Music", "img": "https://seinn.l42.eu/logo.jpg", "requires": {"net": false, "js": false}},
 	{ "baseurl": "https://notes.l42.eu/todo/", "title": "Todo List", "img": "https://notes.l42.eu/todo-icon", "requires": {"net": false, "js": true}, "preload": {"src": "https://notes.l42.eu/preload"}},
 	{ "baseurl": "https://monitoring.l42.eu/", "title": "Services", "requires": {"net": true, "js": false}},
 	{ "baseurl": "https://am.l42.eu/", "title": "Am", "requires": {"net": false, "js": false}, "preload": true},
