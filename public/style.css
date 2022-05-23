@@ -133,25 +133,10 @@
 			#music .play {
 				font-weight: bold;
 			}
-			.lucos_offline .module.networkonly {
+			.offline #links .networkonly {
 				opacity: 0.4;
 				pointer-events: none;
 				cursor: default;
-			}
-			.module .loadingbar {
-				height: 10px;
-				background: #7af;
-				margin-top: -60px;
-				margin-bottom: 50px;
-			}
-			.module.manifestloaded .loadingbar { 
-				background: #fa7;
-			}
-			.module.resourcesloaded .loadingbar { 
-				background: #7fa;
-			}
-			.module .loading img {
-				opacity: 0.4;
 			}
 
 #pdfs { clear: both; font-weight: bold; }

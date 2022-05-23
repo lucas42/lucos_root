@@ -1,17 +1,7 @@
-FROM openjdk:18-alpine
+FROM lucas42/lucos_navbar:latest as navbar
+FROM httpd:2.4-alpine
 
-WORKDIR /web/lucos/root
-
-# Legacy method of installing resources was using the lucos_core library - installed in a relative location on the file system
-RUN apk add git
-RUN git clone https://github.com/lucas42/lucos_core.git /web/lucos/core
-
-RUN mkdir -p /web/lucos/lib/java/
-
-RUN wget "https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.1/gson-2.8.1.jar" -O /web/lucos/lib/java/gson-2.8.1.jar
-
-COPY . .
-
-RUN ./build.sh
-
-CMD [ "java", "-cp", ".:bin:../lib/java/*", "Server" ]
+RUN echo "Include conf/vhost.conf" >> /usr/local/apache2/conf/httpd.conf
+COPY vhost.conf /usr/local/apache2/conf/
+COPY public/ /usr/local/apache2/lucos_root
+COPY --from=navbar lucos_navbar.js /usr/local/apache2/lucos_root/

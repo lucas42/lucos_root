@@ -1,0 +1,13 @@
+{
+  "system": "lucos_root",
+  "checks": {
+    "modules": {
+      "techDetail": "Apache serving traffic",
+      "ok": true
+    }
+  },
+  "ci": {
+    "circle": "gh/lucas42/lucos_root"
+  },
+  "metrics": {}
+}
