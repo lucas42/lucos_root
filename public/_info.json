@@ -1,7 +1,7 @@
 {
   "system": "lucos_root",
   "checks": {
-    "modules": {
+    "apache": {
       "techDetail": "Apache serving traffic",
       "ok": true
     }
