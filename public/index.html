@@ -8,11 +8,6 @@
 		<link rel="icon" href="/favicon.png" />
 		<title>LucOS</title>
 		<link href="/style.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript">
-			if (!navigator.onLine) document.body.classList.add("offline");
-			window.addEventListener('offline', () => document.body.classList.add("offline"));
-			window.addEventListener('online', () => document.body.classList.remove("offline"));
-		</script>
 	</head>
 	<body>
 		<lucos-navbar>Home</lucos-navbar>
@@ -36,5 +31,21 @@
 			</ul>
 		</div>
 		<script src="/lucos_navbar.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			(async () => {
+				if (!navigator.onLine) document.body.classList.add("offline");
+				window.addEventListener('offline', () => document.body.classList.add("offline"));
+				window.addEventListener('online', () => document.body.classList.remove("offline"));
+
+				try {
+					if (!('serviceWorker' in navigator)) throw "no service worker support";
+					const registration = await navigator.serviceWorker.register('/serviceworker.js');
+					console.log('ServiceWorker registration successful with scope: ' + registration.scope);
+					registration.update();
+				} catch (error) {
+					console.error('ServiceWorker registration failed: ' + error);
+				}
+			})();
+		</script>
 	</body>
 </html>
