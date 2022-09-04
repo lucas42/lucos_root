@@ -9,5 +9,7 @@
   "ci": {
     "circle": "gh/lucas42/lucos_root"
   },
-  "metrics": {}
+  "metrics": {},
+  "icon": "/icon.png",
+  "network_only": false
 }
