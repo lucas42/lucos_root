@@ -2,7 +2,7 @@
 	{ "baseurl": "https://seinn.l42.eu", "title": "Play Music", "img": "https://seinn.l42.eu/logo.jpg", "requires": {"net": false}},
 	{ "baseurl": "https://notes.l42.eu/todo/", "title": "Todo List", "img": "https://notes.l42.eu/icon.png", "requires": {"net": false}},
 	{ "baseurl": "https://monitoring.l42.eu/", "title": "Services", "requires": {"net": true}},
-	{ "baseurl": "https://am.l42.eu/", "title": "Am", "requires": {"net": false}},
+	{ "baseurl": "https://am.l42.eu/", "title": "Am", "requires": {"net": true}},
 	{ "baseurl": "https://app.tfluke.uk/", "title": "Travel", "img": "https://app.tfluke.uk/img/icon.png", "requires": {"net": false}},
 	{ "baseurl": "https://contacts.l42.eu/", "title": "Contacts", "img":"https://contacts.l42.eu/resources/logo-highres.png", "requires": {"net": true}},
 	{ "baseurl": "https://loganne.l42.eu", "title": "Loganne", "img": "https://loganne.l42.eu/icon", "requires": {"net": true}}
