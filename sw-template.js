@@ -7,7 +7,7 @@ const crossDomainUrls = [
 	"https://seinn.l42.eu/logo.jpg",
 	"https://notes.l42.eu/icon.png",
 	"https://monitoring.l42.eu/icon",
-	"https://am.l42.eu/icon",
+	"https://am.l42.eu/icon.png",
 	"https://app.tfluke.uk/img/icon.png",
 	"https://contacts.l42.eu/resources/logo-highres.png",
 	"https://loganne.l42.eu/icon",
