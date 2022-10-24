@@ -1,8 +1,9 @@
 version: '3'
 services:
-    root:
-      build: .
-      container_name: root
-      ports: 
-        - "8003:80"
-      image: lucas42/lucos_root
+  root:
+    build: .
+    container_name: root
+    ports: 
+      - "8003:80"
+    image: lucas42/lucos_root
+    restart: always
