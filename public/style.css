@@ -22,6 +22,7 @@ body {
 #links img {
 	border: none;
 	width: 100px;
+	filter: drop-shadow(15px -6px 0.5px rgba(0, 0, 0, 0.2));
 }
 
 #bookmarks {
