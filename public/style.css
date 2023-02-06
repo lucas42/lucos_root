@@ -2,22 +2,21 @@
 body {
 	background: repeating-linear-gradient( -45deg, rgb(255,220,200) 0, rgb(255,220,200) 18px, rgb(255,255,200) 18px, rgb(255,255,200) 36px);
 	margin: 0;
-}
-.linkcontainer {
-	float:right;
-	position:relative;
-	left:-50%;
-	text-align:left;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding-top: 0;
 }
 #links {
+	flex: auto;
 	margin-top: 50px;
 	list-style:none; 
-	position:relative;
-	left:50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 }
 #links li {
-	float:left;
-	position:relative;
 	margin: 10px;				
 }
 #links img {
@@ -26,25 +25,18 @@ body {
 }
 
 #bookmarks {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	font-weight: bold;
 	background: linear-gradient(transparent, #204 25%);
 	color: #fff;
 	font-size: 1.5em;
 	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
 	padding: 10px 0 0 0;
-	height: 30px;
-	overflow: hidden;
 }
 #bookmarks ul {
-	list-style:none;
+	display: flex;
+	list-style: none;
 	margin: 0;
-}
-#bookmarks li {
-	float: left;
+	flex-wrap: wrap;
 }
 #bookmarks a {
 	border: none;
