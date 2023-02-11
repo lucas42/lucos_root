@@ -45,6 +45,7 @@ body {
 	color: inherit;
 	padding: 0 0.5em;
 	display: block;
+	margin: 5px;
 }
 #bookmarks img {
 	height: 1em;
