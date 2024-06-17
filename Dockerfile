@@ -17,5 +17,5 @@ FROM httpd:2.4-alpine
 WORKDIR /usr/local/apache2/lucos_root/
 RUN echo "Include conf/vhost.conf" >> /usr/local/apache2/conf/httpd.conf
 COPY vhost.conf /usr/local/apache2/conf/
-COPY public/ .
+COPY --from=build public/ .
 COPY --from=build build-output .
