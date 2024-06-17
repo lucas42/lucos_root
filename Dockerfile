@@ -6,6 +6,7 @@ RUN mkdir {public,templates}
 COPY build-config .
 COPY templates templates/
 COPY public public/
+COPY --from=navbar lucos_navbar.js public/
 
 RUN ./fetch-service-info.sh
 RUN ./populate-templates.sh
@@ -17,5 +18,4 @@ WORKDIR /usr/local/apache2/lucos_root/
 RUN echo "Include conf/vhost.conf" >> /usr/local/apache2/conf/httpd.conf
 COPY vhost.conf /usr/local/apache2/conf/
 COPY public/ .
-COPY --from=navbar lucos_navbar.js .
 COPY --from=build build-output .
