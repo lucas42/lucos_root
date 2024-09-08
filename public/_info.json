@@ -11,5 +11,6 @@
   },
   "metrics": {},
   "icon": "/icon.png",
-  "network_only": false
+  "network_only": false,
+  "show_on_homepage": false
 }
