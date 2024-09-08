@@ -1,10 +1,12 @@
 #!/bin/sh
+set -e
 mkdir -p services
 echo -e "\t\t\t<ul id='links'>" > services.html
 echo "const iconUrls = [" > iconUrls.json
 cat service-list | while read service
 	do
 		serviceFile=services/$service.json
+		echo $service
 		curl "https://$service/_info" -s | \
 		jq "select( .show_on_homepage == true) | {icon: (\"https://$service\"+.icon),network_only,start_url: (\"https://$service\"+(.start_url // \"/\")),title}" > $serviceFile
 		if [[ ! -s $serviceFile ]]
