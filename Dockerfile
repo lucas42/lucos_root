@@ -1,6 +1,6 @@
-FROM lucas42/lucos_navbar:latest as navbar
+FROM lucas42/lucos_navbar:latest AS navbar
 
-FROM alpine:latest as build
+FROM alpine:latest AS build
 RUN apk add curl jq
 RUN mkdir {public,templates}
 COPY build-config .
