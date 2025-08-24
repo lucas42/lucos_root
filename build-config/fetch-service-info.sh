@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+if [[ $(tail -c1 service-list | wc -w) -gt "0" ]]; then echo "service-list doesn't end in a newline" && exit 1; fi
 mkdir -p services
 echo -e "\t\t\t<ul id='links'>" > services.html
 echo "const iconUrls = [" > iconUrls.json
