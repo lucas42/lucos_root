@@ -1,0 +1,23 @@
+{
+	"name": "lucOS",
+	"short_name": "lucOS",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"theme_color": "#000",
+	"background_color": "#ffffc8",
+	"icons":[
+		{
+			"src": "/icon.png",
+			"sizes": "57x57",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/maskable_icon.png",
+			"sizes": "137x137",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	]
+}
