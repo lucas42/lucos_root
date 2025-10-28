@@ -1,10 +1,9 @@
 #!/bin/sh
 set -e
-if [[ $(tail -c1 service-list | wc -w) -gt "0" ]]; then echo "service-list doesn't end in a newline" && exit 1; fi
 mkdir -p services
 echo -e "\t\t\t<ul id='links'>" > services.html
 echo "const iconUrls = [" > iconUrls.json
-cat service-list | while read service
+curl "https://configy.l42.eu/systems/http?fields=domain" -H "Accept: text/csv;header=absent" | while read service
 	do
 		serviceFile=services/$service.json
 		echo $service
