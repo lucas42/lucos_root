@@ -3,6 +3,6 @@ services:
     build: .
     container_name: root
     ports: 
-      - "8003:80"
+      - $PORT:80
     image: lucas42/lucos_root
     restart: always
