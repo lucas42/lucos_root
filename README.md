@@ -4,13 +4,13 @@ A homescreen for lucos modules.
 
 ## Dependencies
 * docker
-* docker-compose
+* docker compose
 
 ## Runtime dependencies
 Apache 2.4
 
 ## Running
-`nice -19 docker-compose up -d --no-build`
+`nice -19 docker compose up -d --no-build`
 
 
 ## Building
