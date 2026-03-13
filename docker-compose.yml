@@ -6,3 +6,9 @@ services:
       - $PORT:80
     image: lucas42/lucos_root
     restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:80/_info"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
