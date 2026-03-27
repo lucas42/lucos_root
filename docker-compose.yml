@@ -1,7 +1,7 @@
 services:
   root:
     build: .
-    container_name: root
+    container_name: lucos_root
     ports: 
       - $PORT:80
     image: lucas42/lucos_root
