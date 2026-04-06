@@ -7,8 +7,12 @@ curl "https://configy.l42.eu/systems/http?fields=domain" -H "Accept: text/csv;he
 	do
 		serviceFile=services/$service.json
 		echo $service
-		curl "https://$service/_info" -s | \
-		jq "select( .show_on_homepage == true) | {icon: (\"https://$service\"+.icon),network_only,start_url: (\"https://$service\"+(.start_url // \"/\")),title}" > $serviceFile
+		infoResponse=$(curl "https://$service/_info" -s)
+		if ! echo "$infoResponse" | jq "select( .show_on_homepage == true) | {icon: (\"https://$service\"+.icon),network_only,start_url: (\"https://$service\"+(.start_url // \"/\")),title}" > $serviceFile; then
+			echo "Error: Failed to parse /_info response from $service" >&2
+			echo "Response (first 200 chars): $(echo "$infoResponse" | head -c 200)" >&2
+			exit 1
+		fi
 		if [[ ! -s $serviceFile ]]
 		then
 			rm $serviceFile

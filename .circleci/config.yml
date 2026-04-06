@@ -5,7 +5,9 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - lucos/build-amd64
+      - lucos/build-amd64:
+          max_auto_reruns: 3
+          auto_rerun_delay: 30s
       - lucos/deploy-avalon:
           serial-group: << pipeline.project.slug >>/deploy-avalon
           requires:
