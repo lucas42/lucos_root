@@ -3,11 +3,11 @@ set -e
 mkdir -p services
 echo -e "\t\t\t<ul id='links'>" > services.html
 echo "const iconUrls = [" > iconUrls.json
-curl "https://configy.l42.eu/systems/http?fields=domain" -H "Accept: text/csv;header=absent" | while read service
+curl "https://configy.l42.eu/systems/http?fields=domain" -H "Accept: text/csv;header=absent" -H "User-Agent: lucos_root" | while read service
 	do
 		serviceFile=services/$service.json
 		echo $service
-		infoResponse=$(curl "https://$service/_info" -s)
+		infoResponse=$(curl "https://$service/_info" -s -H "User-Agent: lucos_root")
 		if ! echo "$infoResponse" | jq "select( .show_on_homepage == true) | {icon: (\"https://$service\"+.icon),network_only,start_url: (\"https://$service\"+(.start_url // \"/\")),title}" > $serviceFile; then
 			echo "Error: Failed to parse /_info response from $service" >&2
 			echo "Response (first 200 chars): $(echo "$infoResponse" | head -c 200)" >&2
