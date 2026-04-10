@@ -1,4 +1,4 @@
-FROM lucas42/lucos_navbar:2.1.44 AS navbar
+FROM lucas42/lucos_navbar:2.1.46 AS navbar
 
 FROM alpine:latest AS build
 RUN apk add curl jq
