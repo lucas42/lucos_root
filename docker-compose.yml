@@ -4,7 +4,7 @@ services:
     container_name: lucos_root
     ports: 
       - $PORT:80
-    image: lucas42/lucos_root
+    image: lucas42/lucos_root:${VERSION:-latest}
     restart: always
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:80/_info"]
