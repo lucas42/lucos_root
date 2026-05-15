@@ -7,7 +7,7 @@ workflows:
     max_auto_reruns: 3
     jobs:
       - lucos/build:
-          serial-group: << pipeline.project.slug >>/build
+          serial-group: << pipeline.project.slug >>/build/<< pipeline.git.branch >>
       - lucos/deploy-avalon:
           serial-group: deploy-avalon
           requires:
