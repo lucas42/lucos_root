@@ -9,7 +9,7 @@ services:
     environment:
       - SYSTEM
       - PORT
-      - APP_ORIGIN
+      - APP_ORIGIN  # reserved: used by future auth middleware (lucos_root#135)
       - LOGANNE_ENDPOINT
     healthcheck:
       test: ["CMD", "/lucos_root", "--healthcheck"]

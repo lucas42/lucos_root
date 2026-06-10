@@ -333,17 +333,24 @@ type TemplateData struct {
 
 // InfoResponse is the /_info JSON payload for lucos_root itself.
 type InfoResponse struct {
-	System         string              `json:"system"`
-	Checks         map[string]Check    `json:"checks"`
-	Metrics        map[string]struct{} `json:"metrics"`
-	CI             map[string]string   `json:"ci"`
-	ShowOnHomepage bool                `json:"show_on_homepage"`
+	System         string            `json:"system"`
+	Checks         map[string]Check  `json:"checks"`
+	Metrics        map[string]Metric `json:"metrics"`
+	CI             map[string]string `json:"ci"`
+	Title          string            `json:"title,omitempty"`
+	ShowOnHomepage bool              `json:"show_on_homepage"`
 }
 
 // Check is a single /_info health check entry.
 type Check struct {
 	OK         bool   `json:"ok"`
 	TechDetail string `json:"techDetail"`
+}
+
+// Metric is a single /_info metric entry.
+type Metric struct {
+	Value      float64 `json:"value"`
+	TechDetail string  `json:"techDetail"`
 }
 
 // Server holds all HTTP handler dependencies.
@@ -393,13 +400,14 @@ func (s *Server) routes() http.Handler {
 func (s *Server) infoHandler(w http.ResponseWriter, r *http.Request) {
 	resp := InfoResponse{
 		System: s.system,
+		Title:  "LucOS Root",
 		Checks: map[string]Check{
 			"configy-reachable": {
 				OK:         s.panel.ConfigyOK(),
 				TechDetail: "Whether the configy service list has been fetched at least once",
 			},
 		},
-		Metrics:        map[string]struct{}{},
+		Metrics:        map[string]Metric{},
 		CI:             map[string]string{"circle": "gh/lucas42/lucos_root"},
 		ShowOnHomepage: false,
 	}
