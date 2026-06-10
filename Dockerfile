@@ -8,16 +8,17 @@ WORKDIR /go/src/lucos_root
 COPY go.mod .
 RUN go mod download
 
-# Copy source and static assets
-COPY main.go .
-COPY templates/ templates/
-COPY public/ public/
+# Copy source and embedded assets (public/ and templates/ live under src/)
+COPY src/ src/
 # Inject lucos_navbar.js into public/ before embedding (so it is bundled into the binary)
-COPY --from=navbar lucos_navbar.js public/lucos_navbar.js
+COPY --from=navbar lucos_navbar.js src/public/lucos_navbar.js
 
-RUN CGO_ENABLED=0 go build -o lucos_root .
+RUN CGO_ENABLED=0 go build -o lucos_root ./src/
 
-# Minimal runtime image: no shell, just the binary (all assets embedded)
+# distroless/static-debian12 rather than scratch: includes the CA certificate
+# bundle, which is required for the outbound HTTPS calls to configy and
+# every service's /_info endpoint. scratch has no CA certs, so TLS would
+# fail with "certificate signed by unknown authority".
 FROM gcr.io/distroless/static-debian12
 ARG VERSION
 ENV VERSION=$VERSION

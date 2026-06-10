@@ -77,12 +77,16 @@ type ServiceListPanel struct {
 	httpClient *http.Client
 	loganne    string
 	system     string
+	// scheme is the URL scheme used when fetching /_info endpoints.
+	// Defaults to "https"; overridden to "http" in unit tests.
+	scheme string
 }
 
 func newServiceListPanel(loganne, system string) *ServiceListPanel {
 	return &ServiceListPanel{
 		loganne: loganne,
 		system:  system,
+		scheme:  "https",
 		httpClient: &http.Client{
 			Timeout: fetchTimeout,
 			// Jar: nil → no cookie jar yet; easy to add for future auth panels.
@@ -135,7 +139,7 @@ func (p *ServiceListPanel) fetchDomains(ctx context.Context) ([]string, error) {
 // fetchInfo fetches /_info for one service and updates its entry.
 // It never returns an error; failures are recorded and logged.
 func (p *ServiceListPanel) fetchInfo(ctx context.Context, entry *ServiceEntry) {
-	url := "https://" + entry.Domain + "/_info"
+	url := p.scheme + "://" + entry.Domain + "/_info"
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		log.Printf("WARN: build request for %s: %v", entry.Domain, err)
@@ -175,13 +179,13 @@ func (p *ServiceListPanel) fetchInfo(ctx context.Context, entry *ServiceEntry) {
 	if iconPath == "" {
 		iconPath = "/icon.png"
 	}
-	entry.IconURL = "https://" + entry.Domain + iconPath
+	entry.IconURL = p.scheme + "://" + entry.Domain + iconPath
 
 	startPath := info.StartURL
 	if startPath == "" {
 		startPath = "/"
 	}
-	entry.PageURL = "https://" + entry.Domain + startPath
+	entry.PageURL = p.scheme + "://" + entry.Domain + startPath
 
 	if entry.Unavailable {
 		// Recovery: service was unavailable and is now back.
