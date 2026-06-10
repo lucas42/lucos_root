@@ -1,23 +1,28 @@
 FROM lucas42/lucos_navbar:2.1.73 AS navbar
 
-FROM alpine:latest AS build
-RUN apk add curl jq
-RUN mkdir {public,templates}
-COPY build-config .
-COPY templates templates/
-COPY public public/
-COPY --from=navbar lucos_navbar.js public/
+FROM golang:1.26 AS builder
 
-RUN ./fetch-service-info.sh
-RUN ./populate-templates.sh
+WORKDIR /go/src/lucos_root
 
+# Download module dependencies before copying source (better layer caching)
+COPY go.mod .
+RUN go mod download
 
-FROM httpd:2.4-alpine
+# Copy source and static assets
+COPY main.go .
+COPY templates/ templates/
+COPY public/ public/
+# Inject lucos_navbar.js into public/ before embedding (so it is bundled into the binary)
+COPY --from=navbar lucos_navbar.js public/lucos_navbar.js
+
+RUN CGO_ENABLED=0 go build -o lucos_root .
+
+# Minimal runtime image: no shell, just the binary (all assets embedded)
+FROM gcr.io/distroless/static-debian12
 ARG VERSION
 ENV VERSION=$VERSION
 
-WORKDIR /usr/local/apache2/lucos_root/
-RUN echo "Include conf/vhost.conf" >> /usr/local/apache2/conf/httpd.conf
-COPY vhost.conf /usr/local/apache2/conf/
-COPY --from=build public/ .
-COPY --from=build build-output .
+COPY --from=builder /go/src/lucos_root/lucos_root /lucos_root
+
+HEALTHCHECK CMD ["/lucos_root", "--healthcheck"]
+CMD ["/lucos_root"]

@@ -1,14 +1,19 @@
 services:
   root:
     build: .
-    container_name: lucos_root
-    ports: 
-      - $PORT:80
-    image: lucas42/lucos_root:${VERSION:-latest}
+    container_name: lucos_root_app
+    ports:
+      - $PORT:$PORT
+    image: lucas42/lucos_root_app:${VERSION:-latest}
     restart: always
+    environment:
+      - SYSTEM
+      - PORT
+      - APP_ORIGIN
+      - LOGANNE_ENDPOINT
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:80/_info"]
+      test: ["CMD", "/lucos_root", "--healthcheck"]
       interval: 10s
       timeout: 5s
       retries: 3
-      start_period: 15s
+      start_period: 30s
