@@ -35,3 +35,9 @@ statusChannel.addEventListener("message", function statusMessage(event) {
 			self.skipWaiting();
 	}
 });
+
+// Claim existing tabs immediately, so controllerchange fires and the
+// reload-on-update flow in templates/index.html actually completes.
+self.addEventListener('activate', event => {
+	event.waitUntil(self.clients.claim());
+});
