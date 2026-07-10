@@ -255,4 +255,10 @@ func TestServiceWorkerContainsPreamble(t *testing.T) {
 	if !strings.Contains(body, "https://test.l42.eu/icon.png") {
 		t.Error("serviceworker.js should include injected icon URL")
 	}
+	// Without this, skipWaiting() alone never lets an already-open tab pick up
+	// the new worker — controllerchange never fires and the navbar's update
+	// indicator spins forever (lucas42/lucos_root#145).
+	if !strings.Contains(body, "self.clients.claim()") {
+		t.Error("serviceworker.js should claim existing clients on activate")
+	}
 }
